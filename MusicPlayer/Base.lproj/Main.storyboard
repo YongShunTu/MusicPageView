@@ -1,24 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PageViewController" customModule="MusicPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-uG-me0">
+                                <rect key="frame" x="80" y="104" width="254" height="338.5"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MTc-uG-me0" secondAttribute="height" multiplier="12:16" id="m9S-OC-Mo8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L12-Jz-xrk" appends="YES" id="aQu-Ly-WiR"/>
+                                    <outletCollection property="gestureRecognizers" destination="oRu-Qh-c4d" appends="YES" id="kuP-0s-R42"/>
+                                </connections>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="OWB-xk-sW0">
+                                <rect key="frame" x="129" y="467.5" width="156" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Hb3-tT-WLh"/>
+                                </constraints>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="changePageView:" destination="BYZ-38-t0r" eventType="valueChanged" id="B5v-jX-TyO"/>
+                                </connections>
+                            </pageControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="y4j-1M-n6S" userLabel="First, Second, Third">
+                                <rect key="frame" x="100" y="518.5" width="214" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSegmentedView:" destination="BYZ-38-t0r" eventType="valueChanged" id="QlY-F4-dJw"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBl-zD-DK0">
+                                <rect key="frame" x="80" y="579.5" width="254" height="132.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB8-hj-VK5">
+                                        <rect key="frame" x="0.0" y="40" width="70" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="7Db-s6-7mU"/>
+                                            <constraint firstAttribute="width" constant="70" id="TYD-2X-px3"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="back"/>
+                                        <connections>
+                                            <action selector="backToMusicView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nV6-XE-cBB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhW-na-fKo">
+                                        <rect key="frame" x="184" y="40" width="70" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="2Pn-zQ-Tru"/>
+                                            <constraint firstAttribute="height" constant="60" id="6YJ-XG-nGG"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="next"/>
+                                        <connections>
+                                            <action selector="nextToMusicView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ewg-mV-lcg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WhW-na-fKo" secondAttribute="trailing" id="7gP-ac-Wky"/>
+                                    <constraint firstItem="WhW-na-fKo" firstAttribute="top" secondItem="tBl-zD-DK0" secondAttribute="top" constant="40" id="dE0-Td-5Gz"/>
+                                    <constraint firstItem="PB8-hj-VK5" firstAttribute="leading" secondItem="tBl-zD-DK0" secondAttribute="leading" id="gxg-us-nS2"/>
+                                    <constraint firstItem="PB8-hj-VK5" firstAttribute="top" secondItem="tBl-zD-DK0" secondAttribute="top" constant="40" id="m1U-nF-qGn"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpi-Iz-V83">
+                                <rect key="frame" x="0.0" y="786" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcS-ul-Q0j">
+                                <rect key="frame" x="0.0" y="732" width="414" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBrownColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OWB-xk-sW0" secondAttribute="trailing" constant="129" id="AmI-pq-Taz"/>
+                            <constraint firstItem="Wpi-Iz-V83" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BRo-5k-eBO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MTc-uG-me0" secondAttribute="trailing" constant="80" id="Fnx-5U-RPG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NcS-ul-Q0j" secondAttribute="trailing" id="GL8-Zq-gYa"/>
+                            <constraint firstItem="OWB-xk-sW0" firstAttribute="top" secondItem="MTc-uG-me0" secondAttribute="bottom" constant="25" id="MQy-XP-ecF"/>
+                            <constraint firstItem="tBl-zD-DK0" firstAttribute="top" secondItem="y4j-1M-n6S" secondAttribute="bottom" constant="30" id="Mx4-P9-uZJ"/>
+                            <constraint firstItem="MTc-uG-me0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="WXl-4x-udY"/>
+                            <constraint firstItem="MTc-uG-me0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="YEq-tO-l0u"/>
+                            <constraint firstItem="y4j-1M-n6S" firstAttribute="top" secondItem="OWB-xk-sW0" secondAttribute="bottom" constant="25" id="bZh-6X-eh6"/>
+                            <constraint firstItem="Wpi-Iz-V83" firstAttribute="top" secondItem="NcS-ul-Q0j" secondAttribute="bottom" constant="30" id="dWx-j3-rJB"/>
+                            <constraint firstItem="NcS-ul-Q0j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iWY-Og-G5a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tBl-zD-DK0" secondAttribute="trailing" constant="80" id="khT-Q4-v0n"/>
+                            <constraint firstItem="tBl-zD-DK0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="lUI-Mw-TJs"/>
+                            <constraint firstItem="NcS-ul-Q0j" firstAttribute="top" secondItem="tBl-zD-DK0" secondAttribute="bottom" constant="20" id="nX1-2W-phA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y4j-1M-n6S" secondAttribute="trailing" constant="100" id="oYY-qA-VB5"/>
+                            <constraint firstItem="OWB-xk-sW0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="pJY-QI-QaX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wpi-Iz-V83" secondAttribute="bottom" constant="40" id="sfu-89-6De"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wpi-Iz-V83" secondAttribute="trailing" id="y8v-nx-mbn"/>
+                            <constraint firstItem="y4j-1M-n6S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="yKQ-ED-2eF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="changImageView" destination="MTc-uG-me0" id="6Y1-aV-pQ2"/>
+                        <outlet property="musicLabel" destination="Wpi-Iz-V83" id="HPJ-JZ-7DN"/>
+                        <outlet property="pageController" destination="OWB-xk-sW0" id="xuT-8w-hbV"/>
+                        <outlet property="segmentedControl" destination="y4j-1M-n6S" id="HwX-ml-cNk"/>
+                        <outlet property="singerNameLabel" destination="NcS-ul-Q0j" id="Fhq-NY-6an"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="L12-Jz-xrk">
+                    <connections>
+                        <action selector="swipeMusicView:" destination="BYZ-38-t0r" id="vru-tD-XFc"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="oRu-Qh-c4d">
+                    <connections>
+                        <action selector="swipeMusicView:" destination="BYZ-38-t0r" id="08g-ec-dmm"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="24" height="24"/>
+        <image name="next" width="24" height="24"/>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
